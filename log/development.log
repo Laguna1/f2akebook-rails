@@ -17,3 +17,90 @@ Migrating to DeviseCreateUsers (20211014221608)
   [1m[36mTRANSACTION (34.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(430107000612646980)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-10-15 01:38:38 +0300
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `devise_controller?' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:3:in `<main>'
+app/controllers/users_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2021-10-15 01:43:30 +0300
+  
+NoMethodError (undefined method `devise_controller?' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:3:in `<main>'
+app/controllers/users_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2021-10-15 01:46:09 +0300
+  
+NoMethodError (undefined method `devise_controller?' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:3:in `<main>'
+app/controllers/users_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2021-10-15 01:46:41 +0300
+  
+NoMethodError (undefined method `before_filter' for ApplicationController:Class
+Did you mean?  before_action):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:3:in `<main>'
+app/controllers/users_controller.rb:3:in `<main>'
+Started GET "/" for ::1 at 2021-10-15 01:47:37 +0300
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 541ms (ActiveRecord: 0.0ms | Allocations: 2397)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-15 01:48:02 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 47.7ms | Allocations: 608)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 439.1ms | Allocations: 3287)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/oksana/f2akebook-rails/public/packs
+[Webpacker] Hash: 04787b5496fd0b875eed
+Version: webpack 4.46.0
+Time: 53643ms
+Built at: 10/15/2021 1:52:53 AM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-6568bbc983858ec9d548.js    664 KiB  application  [emitted] [immutable]  application
+js/application-6568bbc983858ec9d548.js.map    777 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-6568bbc983858ec9d548.js js/application-6568bbc983858ec9d548.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 505 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 6 hidden modules
+
+  Rendered layout layouts/application.html.erb (Duration: 300467.3ms | Allocations: 84117)
+Completed 200 OK in 301594ms (Views: 300769.4ms | ActiveRecord: 665.0ms | Allocations: 92242)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-10-15 01:54:09 +0300
+Started GET "/users/sign_up" for ::1 at 2021-10-15 01:54:09 +0300
+Processing by Devise::RegistrationsController#new as HTML
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 56.7ms | Allocations: 243)
+  Rendered devise/shared/_error_messages.html.erb (Duration: 56.8ms | Allocations: 269)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 137)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 558.2ms | Allocations: 2885)
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 101)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 558.9ms | Allocations: 3072)
+[Webpacker] Everything's up-to-date. Nothing to do
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 1773.3ms | Allocations: 15076)
+Completed 200 OK in 2055ms (Views: 2052.8ms | ActiveRecord: 0.0ms | Allocations: 16619)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 1774.0ms | Allocations: 15249)
+Completed 200 OK in 2077ms (Views: 2057.9ms | ActiveRecord: 0.0ms | Allocations: 17605)
+
+
