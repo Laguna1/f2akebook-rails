@@ -9,6 +9,8 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+# Bootstrap
+gem 'bootstrap', '~> 4.4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -21,6 +23,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Devise security gem
+gem 'devise'
+# Faker for database population
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -31,6 +37,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # RSpec Testing
+  gem "database_cleaner"
+  gem "rspec-rails"
 end
 
 group :development do
@@ -46,7 +55,7 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
