@@ -104,3 +104,26 @@ Completed 200 OK in 2055ms (Views: 2052.8ms | ActiveRecord: 0.0ms | Allocations:
 Completed 200 OK in 2077ms (Views: 2057.9ms | ActiveRecord: 0.0ms | Allocations: 17605)
 
 
+Started GET "/users/sign_up" for ::1 at 2021-10-15 02:06:34 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 34.1ms | Allocations: 211)
+  Rendered devise/shared/_links.html.erb (Duration: 48.6ms | Allocations: 481)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 1259.3ms | Allocations: 2694)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 2588.3ms | Allocations: 9050)
+Completed 200 OK in 3431ms (Views: 2990.6ms | Allocations: 10748)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-15 02:07:06 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 148)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 51.6ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 138.1ms | Allocations: 7466)
+Completed 200 OK in 162ms (Views: 160.4ms | Allocations: 8643)
+
+
