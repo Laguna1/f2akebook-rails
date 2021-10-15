@@ -1,2 +1,11 @@
 <h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% if user_signed_in? %>
+  <%= link_to 'New Post', new_post_path %>
+
+<% end %>
+<h4>All Posts:</h4>
+<% @posts.each do |p|%>
+  <small><%= p.user.fname %> <%= p.user.lname %></small>
+  <%= p.content %>
+  <br><br>
+<% end %> 
