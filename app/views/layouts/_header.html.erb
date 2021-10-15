@@ -1,0 +1,36 @@
+<header class="bg-light">
+   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-5">F@AKEBOOK</h1>
+         <% end %>
+      </div> 
+    <% if user_signed_in? %>
+      <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+           <div class="row mt-2">
+              <p class="nav-item">
+                <%= link_to "My Profile", user_path(current_user), class: "mr-3" %>
+              </p>
+              <p class="nav-item">
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "mx-3" %>
+              </p>
+               <p class="nav-item">
+                 <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "mx-3"  %>
+              </p>
+               <% else %>
+               <p class="nav-item">
+                 <%= link_to 'Sign In', new_user_session_path, class: "" %>
+               </p>
+               <p class="nav-item">
+                 <%= link_to 'Sign Up', new_user_registration_path, class: "mx-3" %>
+               </p>
+               
+             </div>
+             
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </nav>
+</header>
