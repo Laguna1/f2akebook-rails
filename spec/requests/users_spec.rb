@@ -4,15 +4,15 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET /index' do
-    it 'returns http success' do
-      get '/users/index'
-      expect(response).to have_http_status(:success)
+    it 'assigns all users to @users' do
+      get root_path
+      expect(assigns(:users)).to_eq(User.all)
     end
   end
 
-  describe 'GET /show' do
+  describe 'GET #show' do
     it 'returns http success' do
-      get '/users/show'
+      get :show
       expect(response).to have_http_status(:success)
     end
   end
