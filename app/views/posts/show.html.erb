@@ -1,3 +1,13 @@
 <h1>Posts#show</h1>
 <p><%= @post.user.fname %><%= @post.user.lname %>: <%= @post.content %></p>
-<p><%= link_to 'Delete Post', '#', method: :delete  %></p>
+<p><%= render 'comments/form', object: @post %></p>
+<% @post.comments.each do |comment| %>
+  <%= @comment.user.fname %> <%= @comment.user.lname %>
+  <br>
+   <%= @comment.content %>
+<% end %>
+<% if current_user.id == comment.user_id %>
+<p><%= link_to 'Delete Comment', comment_path(comment), method: :delete  %></p>
+<p><%= link_to 'Delete Post', post_past(post), method: :delete  %></p>
+
+<% end %>

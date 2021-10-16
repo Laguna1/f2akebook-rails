@@ -1560,3 +1560,113 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (43.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(430107000612646980)[0m
   [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-10-16 22:09:44 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1068)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 443)
+  Rendered layouts/_flash.html.erb (Duration: 0.8ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 87.7ms | Allocations: 8474)
+Completed 200 OK in 121ms (Views: 87.0ms | ActiveRecord: 6.7ms | Allocations: 16342)
+
+
+Started GET "/users/1" for ::1 at 2021-10-16 22:09:49 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (2.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 16.0ms | Allocations: 4289)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 150)
+  Rendered layouts/_flash.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 11238)
+Completed 200 OK in 61ms (Views: 45.7ms | ActiveRecord: 5.5ms | Allocations: 13689)
+
+
+Started GET "/posts/1" for ::1 at 2021-10-16 22:09:51 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  Rendered comments/_form.html.erb (Duration: 60.9ms | Allocations: 7843)
+  Rendered posts/show.html.erb within layouts/application (Duration: 72.1ms | Allocations: 9782)
+  Rendered layout layouts/application.html.erb (Duration: 73.2ms | Allocations: 9846)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 29.7ms | Allocations: 12707)
+
+
+  
+ActionView::Template::Error (undefined method `comments_path' for #<ActionView::Base:0x0000000000dbb0>
+Did you mean?  comments_new_path):
+    1: <%= form_for Comment.new do |f| %>
+    2:     <%= f.text_area :content, class: "form-control" %>
+    3:     <%= f.submit "Comment", class: "btn btn-success" %>
+    4:     <%= f.hidden_field :post_id, :value => object.id %>
+  
+app/views/comments/_form.html.erb:1
+app/views/posts/show.html.erb:3
+Started GET "/posts/1" for ::1 at 2021-10-16 22:10:50 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  Rendered comments/_form.html.erb (Duration: 18.4ms | Allocations: 4708)
+  Rendered posts/show.html.erb within layouts/application (Duration: 26.2ms | Allocations: 5969)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | Allocations: 6033)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 5.5ms | Allocations: 9018)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<ActionView::Base:0x0000000000e088>):
+    1: <%= form_for comment.new do |f| %>
+    2:     <%= f.text_area :content, class: "form-control" %>
+    3:     <%= f.submit "Comment", class: "btn btn-success" %>
+    4:     <%= f.hidden_field :post_id, :value => object.id %>
+  
+app/views/comments/_form.html.erb:1
+app/views/posts/show.html.erb:3
+Started GET "/posts/1" for ::1 at 2021-10-16 22:12:52 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (1.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  Rendered comments/_form.html.erb (Duration: 14.2ms | Allocations: 4705)
+  Rendered posts/show.html.erb within layouts/application (Duration: 21.7ms | Allocations: 5965)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 6029)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 5.1ms | Allocations: 9012)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<ActionView::Base:0x0000000000e538>):
+    1: <%= form_for comment.each do |f| %>
+    2:     <%= f.text_area :content, class: "form-control" %>
+    3:     <%= f.submit "Comment", class: "btn btn-success" %>
+    4:     <%= f.hidden_field :post_id, :value => object.id %>
+  
+app/views/comments/_form.html.erb:1
+app/views/posts/show.html.erb:3
