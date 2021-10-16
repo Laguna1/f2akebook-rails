@@ -7,6 +7,6 @@
 
 <h4>My Posts</h4>
 <% @user.posts.each do |p|%>
-  <%= p.content %>
+   <%= p.content %>  || <%= link_to 'More...', post_path %>
   <br><br>
 <% end %>
