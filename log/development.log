@@ -1359,3 +1359,96 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 77ms (Views: 50.3ms | ActiveRecord: 10.4ms | Allocations: 11128)
 
 
+Started GET "/posts/1" for ::1 at 2021-10-16 21:37:07 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (2.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 972)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 459)
+  Rendered layouts/_flash.html.erb (Duration: 0.8ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 8326)
+Completed 200 OK in 53ms (Views: 32.6ms | ActiveRecord: 5.6ms | Allocations: 11353)
+
+
+Started GET "/" for ::1 at 2021-10-16 21:37:08 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1180)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 161)
+  Rendered layouts/_flash.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 7659)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 3.2ms | Allocations: 9911)
+
+
+Started GET "/" for ::1 at 2021-10-16 21:37:18 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 957)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 449)
+  Rendered layouts/_flash.html.erb (Duration: 2.1ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 36.5ms | Allocations: 8290)
+Completed 200 OK in 53ms (Views: 36.4ms | ActiveRecord: 4.2ms | Allocations: 10756)
+
+
+Started GET "/" for ::1 at 2021-10-16 21:37:45 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 959)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 449)
+  Rendered layouts/_flash.html.erb (Duration: 1.6ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 35.6ms | Allocations: 8292)
+Completed 200 OK in 49ms (Views: 35.1ms | ActiveRecord: 4.5ms | Allocations: 10757)
+
+
+Started GET "/" for ::1 at 2021-10-16 21:37:57 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 959)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 449)
+  Rendered layouts/_flash.html.erb (Duration: 0.9ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 41.0ms | Allocations: 8292)
+Completed 200 OK in 57ms (Views: 38.5ms | ActiveRecord: 9.0ms | Allocations: 10757)
+
+
+Started GET "/" for ::1 at 2021-10-16 21:38:09 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  Rendered users/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 959)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 449)
+  Rendered layouts/_flash.html.erb (Duration: 0.8ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 8294)
+Completed 200 OK in 46ms (Views: 32.9ms | ActiveRecord: 3.7ms | Allocations: 10780)
+
+
