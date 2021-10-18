@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'friendships/create'
   root 'users#index'
   devise_for :users
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show] do
+    resources :friendships, only: :create
+  end
   resources :posts, only: %i[index show new create destroy] do
     resources :likes, only: %i[create]
   end
