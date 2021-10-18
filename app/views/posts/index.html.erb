@@ -7,5 +7,9 @@
 <% @posts.each do |p|%>
   <small><%= p.user.fname %> <%= p.user.lname %></small>
   <%= p.content %>
+  <br>
+   <%= render 'likes/like_posts', object: p %>
+  <%= render 'comments/form', object: p %>
+  <%= render 'comments/comment', object: p %>
   <br><br>
 <% end %> 
