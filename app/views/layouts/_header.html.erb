@@ -4,6 +4,11 @@
         <%= link_to root_path, class: "navbar-item" do %>
           <h1 class="title is-5">F@AKEBOOK</h1>
          <% end %>
+    </div> 
+    <div> 
+         <%= link_to posts_path, class: "navbar-item" do %>
+          <h3 class="title is-5">Posts</h3>
+         <% end %>
       </div> 
     <% if user_signed_in? %>
       <div id="navbarExample" class="navbar-menu">
