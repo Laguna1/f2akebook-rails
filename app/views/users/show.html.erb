@@ -1,23 +1,11 @@
 <h3>Users#show</h3>
 <h1>
-<%if current_user %>
+
   <%= current_user.fname%> <%= current_user.lname%>
-<% end %>
+
 </h1>
 
 <h4>My Posts</h4>
 <% @user.posts.each do |p|%>
-   <%= p.content %>  || <%= link_to 'More...', post_path %>
-  <%= render 'comments/form', object: p %>
-  <%p.comments.each do |c|%>
-    <%= c.user.fname %>
-    <%= c.user.lname%> 
-    <br>
-    <%= c.content %> 
-    <% if current_user.id == c.user_id%>
-      <%= link_to  "Delete comment", comment_path(c), method: :delete, data: { confirm: "You sure?" } %>
-    <% end %>
-    <br><br>
-<%end%>
-  <br><br>
+  <%= render 'posts/post_layout', object: p %>
 <% end %>
