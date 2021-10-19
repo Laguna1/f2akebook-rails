@@ -2692,3 +2692,133 @@ Processing by Devise::SessionsController#new as HTML
 Completed 200 OK in 7017ms (Views: 6808.6ms | ActiveRecord: 187.4ms | Allocations: 35976)
 
 
+Started POST "/users/sign_in" for ::1 at 2021-10-20 01:39:23 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"oksana@mail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (159.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "oksana@mail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 751ms (ActiveRecord: 170.5ms | Allocations: 9926)
+
+
+Started GET "/" for ::1 at 2021-10-20 01:39:24 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1318)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1384)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.5ms | Allocations: 5339)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h4>Users#index</h4>
+
+<h1>All Users</h1>
+<% @users.each do |user| %>
+  *  <%= link_to user_path(user) do %>
+    <%= user.fname %> <%= user.lname %>
+  <% end %>  *
+  <% if current_user.id != user.id %>
+    <% unless friend_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+       <% unless friend_request_recieved?(user) %> <!-- If user is not a friend and no request has been recieved -->
+        <% unless friend_request_status?(user) %> <!-- If user is not a friend and but request has been recieved or sent -->
+          <%= link_to user_friendships_path(user), method: :post do %>
+            <button class= "btn btn-warning"> Send Friend Request? </button>
+      <% end %>
+    <% else %> <!-- If user not a friend and a request has been recieved -->
+      <button class= "btn btn-secondary" disabled> Friend Request pending... </button>
+    <% end %>
+  <% end %>
+  <br>
+<% end %> 
+
+):
+1:    <h4>Users#index</h4>
+2:    
+3:    <h1>All Users</h1>
+4:    <% @users.each do |user| %>
+5:      *  <%= link_to user_path(user) do %>
+6:        <%= user.fname %> <%= user.lname %>
+7:      <% end %>  *
+8:      <% if current_user.id != user.id %>
+9:        <% unless friend_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+10:           <% unless friend_request_recieved?(user) %> <!-- If user is not a friend and no request has been recieved -->
+11:            <% unless friend_request_status?(user) %> <!-- If user is not a friend and but request has been recieved or sent -->
+12:              <%= link_to user_friendships_path(user), method: :post do %>
+13:                <button class= "btn btn-warning"> Send Friend Request? </button>
+14:          <% end %>
+15:        <% else %> <!-- If user not a friend and a request has been recieved -->
+16:          <button class= "btn btn-secondary" disabled> Friend Request pending... </button>
+17:        <% end %>
+18:      <% end %>
+19:      <br>
+20:    <% end %> 
+  
+app/views/users/index.html.erb:22: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:22: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:22: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:22: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:22: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:22: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/" for ::1 at 2021-10-20 01:40:06 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1323)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1389)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.4ms | Allocations: 3866)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h4>Users#index</h4>
+
+<h1>All Users</h1>
+<% @users.each do |user| %>
+  *  <%= link_to user_path(user) do %>
+    <%= user.fname %> <%= user.lname %>
+  <% end %>  *
+  <% if current_user.id != user.id %>
+    <% unless friend_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+       <% unless friend_request_recieved?(user) %> <!-- If user is not a friend and no request has been recieved -->
+        <% unless friend_request_status?(user) %> <!-- If user is not a friend and but request has been recieved or sent -->
+          <%= link_to user_friendships_path(user), method: :post do %>
+            <button class= "btn btn-warning"> Send Friend Request? </button>
+      <% end %>
+    <% else %> <!-- If user not a friend and a request has been recieved -->
+      <button class= "btn btn-secondary" disabled> Friend Request pending... </button>
+    <% end %>
+  <% end %>
+  <br>
+<% end %> 
+<% end %>
+
+):
+1:    <h4>Users#index</h4>
+2:    
+3:    <h1>All Users</h1>
+4:    <% @users.each do |user| %>
+5:      *  <%= link_to user_path(user) do %>
+6:        <%= user.fname %> <%= user.lname %>
+7:      <% end %>  *
+8:      <% if current_user.id != user.id %>
+9:        <% unless friend_request_sent?(user) %> <!-- If user is not a friend and no request has been sent -->
+10:           <% unless friend_request_recieved?(user) %> <!-- If user is not a friend and no request has been recieved -->
+11:            <% unless friend_request_status?(user) %> <!-- If user is not a friend and but request has been recieved or sent -->
+12:              <%= link_to user_friendships_path(user), method: :post do %>
+13:                <button class= "btn btn-warning"> Send Friend Request? </button>
+14:          <% end %>
+15:        <% else %> <!-- If user not a friend and a request has been recieved -->
+16:          <button class= "btn btn-secondary" disabled> Friend Request pending... </button>
+17:        <% end %>
+18:      <% end %>
+19:      <br>
+20:    <% end %> 
+21:    <% end %>
+  
+app/views/users/index.html.erb:23: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:23: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:23: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:23: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:23: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/index.html.erb:23: syntax error, unexpected end-of-input, expecting `end'

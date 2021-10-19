@@ -3,6 +3,8 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @friends = Friendship.friends
+    @my_friends = Friendship.friends.where('sent_by_id =?', current_user.id).or(Friendship.friends.where('sent_to_id =?', current_user.id))
   end
 
   def show
