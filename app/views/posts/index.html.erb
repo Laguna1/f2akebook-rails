@@ -4,12 +4,15 @@
 
 <% end %>
 <h4>All Posts:</h4>
-<% @posts.each do |p|%>
-  <small><%= p.user.fname %> <%= p.user.lname %></small>
-  <%= p.content %>
-  <br>
-   <%= render 'likes/like_posts', object: p %>
-  <%= render 'comments/form', object: p %>
-  <%= render 'comments/comment', object: p %>
-  <br><br>
-<% end %> 
+<% @friends.each do |u|%>
+  <% u.posts.each do |p|%>
+    <%= p.user.fname %> <%= p.user.lname %>
+    <br>
+    <%= p.content %>
+    <br>
+    <%= render 'likes/like_posts', object: p%>
+    <%= render 'comments/form', object: p%>
+    <%= render 'comments/comment', object: p%>
+    <br><br>
+  <% end %>
+<% end %>
