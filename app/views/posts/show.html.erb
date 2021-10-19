@@ -1,8 +1,5 @@
 <h1>Posts#show</h1>
-<p><%= @post.user.fname %><%= @post.user.lname %>: <%= @post.content %></p>
-<%= render 'likes/like_posts', object: @post%>
-<%= render 'comments/form', object: @post%>
-<p><%= render 'comments/form', object: @post %></p>
+<%= render 'posts/post_layout', object: @post %>
 
 <% if current_user.id == comment.user_id %>
 <p><%= link_to 'Delete Comment', comment_path(comment), method: :delete  %></p>
