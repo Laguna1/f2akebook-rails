@@ -2673,3 +2673,22 @@ FOREIGN KEY ("sent_by_id")
   [1m[36mActiveRecord::InternalMetadata Load (36.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(430107000612646980)[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-10-20 01:33:57 +0300
+  [1m[35m (71.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+Completed 401 Unauthorized in 42ms (ActiveRecord: 0.0ms | Allocations: 1703)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-10-20 01:34:05 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 3.8ms | Allocations: 607)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 201.2ms | Allocations: 2802)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 14.5ms | Allocations: 542)
+  Rendered layouts/_flash.html.erb (Duration: 16.0ms | Allocations: 191)
+  Rendered layout layouts/application.html.erb (Duration: 6689.6ms | Allocations: 28038)
+Completed 200 OK in 7017ms (Views: 6808.6ms | ActiveRecord: 187.4ms | Allocations: 35976)
+
+
