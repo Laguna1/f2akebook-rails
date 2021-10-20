@@ -1,5 +1,6 @@
 <h1>Posts#new</h1>
 <%= form_for(@post) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @post %>
     Content: <%= f.text_area :content %><br />
     <%= f.submit 'New Post' %>
   <% end %>

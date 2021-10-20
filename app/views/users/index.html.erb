@@ -5,7 +5,7 @@
   <% unless @friends.empty? %>
   <h2>My Friends</h2>
   
-  <% @friends.each do |f|%> <!-- Shows all users that have accepted current user's friend request and have become friends  -->
+  <% @friends.each do |f| %> <!-- Shows all users that have accepted current user's friend request and have become friends  -->
       <div class="row mb-4">  
         <div class="col-auto">
           <%= link_to user_path(f) do %>
@@ -33,7 +33,7 @@
   <% end %>
 <% unless @friend_requests.empty? %>
   <h2>Pending Friend Requests</h2>
-  <% @friend_requests.each do |user|%> <!-- Shows all users friend requests has been sent to -->
+  <% @friend_requests.each do |user| %> <!-- Shows all users friend requests has been sent to -->
     <%= link_to user_path(user) do %>
       <%= user.fname %> <%= user.lname %>
     <% end %>
@@ -46,7 +46,7 @@
 <% end %>
 
 <h2>Other Users</h2>
-<% @users.each do |user|%>
+<% @users.each do |user| %>
   <% if current_user.id != user.id %><!-- Doesn't show current user on list -->
     <% unless possible_friend?(user) %> <!-- If user is not a friend and no request has been sent to or recieved from this user -->
       <%= link_to user_path(user) do %>
