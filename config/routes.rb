@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  get '/saw_notification', to: 'users#saw_notification', as: 'button'
   resources :posts, only: %i[index show new create destroy] do
     resources :likes, only: %i[create]
   end
