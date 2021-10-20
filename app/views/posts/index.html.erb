@@ -4,8 +4,6 @@
 
 <% end %>
 <h4>All Posts:</h4>
-<% @friends.each do |u|%>
-  <% u.posts.each do |p|%>
-   <%= render 'posts/post_layout', object: p %>
-  <% end %>
+<% @our_posts.each do |p|%>
+  <%= render 'posts/post_layout', object: p %>
 <% end %>
