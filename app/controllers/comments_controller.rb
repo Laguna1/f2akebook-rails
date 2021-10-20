@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  include ApplicationHelper
+
   def new
     @comment = Comment.new
   end
@@ -13,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comment.build(comment_params)
     @post = Post.find(params[:comment][:post_id])
     if @comment.save
-      @notification = @post.user.notifications.build(notice_id: @post.id, notice_type: 'comment')
+      @notification = new_notification(@post.user, @post.id, 'comment')
       @notification.save
       redirect_to @post
     else
