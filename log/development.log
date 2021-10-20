@@ -5140,3 +5140,130 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 52ms (Views: 34.4ms | ActiveRecord: 10.9ms | Allocations: 12273)
 
 
+Started GET "/" for ::1 at 2021-10-20 19:53:32 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mFriendship Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."sent_by_id" = $1 AND "friendships"."sent_to_id" = $2 AND "friendships"."status" = $3 LIMIT $4[0m  [["sent_by_id", 1], ["sent_to_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:15:in `friend_request_sent?'
+  Rendered users/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3684)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 17.4ms | Allocations: 5025)
+  Rendered layout layouts/application.html.erb (Duration: 53.4ms | Allocations: 15174)
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 17.4ms | Allocations: 23273)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `saw_notice_path' for #<ActionView::Base:0x00000000019c08>):
+    32:                  <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "mx-3"  %>
+    33:               </p>
+    34:               <p class="nav-item">
+    35:                 <%= button_to saw_notice_path, :class => "text-white btn notice-btn-#{notification_seen}",
+    36:              data: {toggle: 'modal', target: '#noticeModal'}, method: :get, remote: true do %>
+    37:                 Notifications
+    38:             <% end %>
+  
+app/views/layouts/_header.html.erb:35
+app/views/layouts/application.html.erb:14
+Started GET "/" for ::1 at 2021-10-20 19:54:13 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mFriendship Exists? (3.9ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."sent_by_id" = $1 AND "friendships"."sent_to_id" = $2 AND "friendships"."status" = $3 LIMIT $4[0m  [["sent_by_id", 1], ["sent_to_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:15:in `friend_request_sent?'
+  Rendered users/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 3354)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:6
+  [1m[36mNotification Load (2.2ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:12
+  Rendered shared/_notifications.html.erb (Duration: 26.4ms | Allocations: 2905)
+  Rendered layouts/_header.html.erb (Duration: 33.1ms | Allocations: 4356)
+  Rendered layouts/_flash.html.erb (Duration: 2.4ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 87.6ms | Allocations: 14202)
+Completed 200 OK in 130ms (Views: 68.1ms | ActiveRecord: 33.4ms | Allocations: 21622)
+
+
+Started GET "/saw_notification" for ::1 at 2021-10-20 19:54:18 +0300
+Processing by UsersController#saw_notification as JS
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+No template found for UsersController#saw_notification, rendering head :no_content
+Completed 204 No Content in 19ms (ActiveRecord: 1.7ms | Allocations: 4210)
+
+
+Started GET "/posts/new" for ::1 at 2021-10-20 19:54:24 +0300
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 418)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:6
+  [1m[36mNotification Load (2.4ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:12
+  Rendered shared/_notifications.html.erb (Duration: 8.0ms | Allocations: 1662)
+  Rendered layouts/_header.html.erb (Duration: 8.9ms | Allocations: 2045)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 31.6ms | Allocations: 8794)
+Completed 200 OK in 74ms (Views: 30.4ms | ActiveRecord: 16.5ms | Allocations: 14805)
+
+
+Started GET "/users/1" for ::1 at 2021-10-20 19:54:26 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPost Load (3.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:9
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/likes/_like_posts.html.erb:1
+  [1m[36mLike Exists? (2.9ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."post_id" = $2 LIMIT $3[0m  [["user_id", 1], ["post_id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:6:in `liked?'
+  Rendered likes/_like_posts.html.erb (Duration: 25.3ms | Allocations: 3853)
+  Rendered comments/_form.html.erb (Duration: 17.0ms | Allocations: 4840)
+  Rendered posts/_post_layout.html.erb (Duration: 47.3ms | Allocations: 9501)
+  Rendered users/show.html.erb within layouts/application (Duration: 63.2ms | Allocations: 12500)
+  Rendered layout layouts/application.html.erb (Duration: 63.5ms | Allocations: 12564)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 17.0ms | Allocations: 14985)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<ActionView::Base:0x0000000001bf30>
+Did you mean?  comment_url):
+    1: <%= form_for comment.each do |f| %>
+    2:     <%= f.text_area :content, class: "form-control" %>
+    3:     <%= f.submit "Comment", class: "btn btn-success" %>
+    4:     <%= f.hidden_field :post_id, :value => object.id %>
+  
+app/views/comments/_form.html.erb:1
+app/views/posts/_post_layout.html.erb:7
+app/views/users/show.html.erb:10
+app/views/users/show.html.erb:9
+Started GET "/posts/new" for ::1 at 2021-10-20 19:54:29 +0300
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:6
+  [1m[36mNotification Load (2.1ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:12
+  Rendered shared/_notifications.html.erb (Duration: 12.8ms | Allocations: 1662)
+  Rendered layouts/_header.html.erb (Duration: 16.3ms | Allocations: 2045)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | Allocations: 8617)
+Completed 200 OK in 55ms (Views: 35.5ms | ActiveRecord: 7.1ms | Allocations: 10846)
+
+
