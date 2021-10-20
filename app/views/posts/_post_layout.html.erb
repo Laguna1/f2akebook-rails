@@ -1,20 +1,40 @@
-<%= object.user.fname %>
-<%= object.user.lname %>
-<br>
-<%= object.content %>
-<br>
-<%= render 'likes/like_posts', object: object%>
-<%= render 'comments/form', object: object %>
-<%object.comments.each do |c|%>
-  <%= c.user.fname %>
-  <%= c.user.lname%> 
-  <br>
-  <%= c.content %> 
-  <% if current_user.id == c.user_id%>
-    <%= link_to  "Delete comment", comment_path(c), method: :delete, data: { confirm: "You sure?" } %>
-  <% end %>
-  <br>
-  <%= render 'likes/like_comments', object: c %>
+<div class="">
+
+  <div class=" ">
+    <div class="">
+      <%= object.user.fname %>
+      <%= object.user.lname %>
+    </div> <br>
+
+    <div class="">
+      <%= object.content %>
+    </div>
+  </div> 
+
+  <div class=""><%= render 'likes/like_posts', object: object %></div>
+  <div class="">
+    <% object.comments.each do |c| %>
+      <div class="">
+        <span class= "">
+          <%= c.user.fname %>
+          <%= c.user.lname %> 
+        </span>
+        <br>
+        <%= c.content %> 
+        <% if current_user.id == c.user_id %>
+          <%= link_to  "Delete comment", comment_path(c), method: :delete, data: { confirm: "You sure?" } %>
+        <% end %>
+
+        <div><%= render 'likes/like_comments', object: c %></div> 
+      </div>
+    <%end%> 
+
+    <div class=" ">
+      <%= render 'comments/form', object: object %>
+    </div>
+  </div>
   <br><br>
 <%end%>
-<br><br>
+<br><br> 
+</div>
+ <br> <br> 
