@@ -4556,3 +4556,86 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 36ms (Views: 25.2ms | ActiveRecord: 5.2ms | Allocations: 9940)
 
 
+Started GET "/" for ::1 at 2021-10-20 19:26:23 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:4
+  [1m[36mFriendship Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "friendships" WHERE "friendships"."sent_by_id" = $1 AND "friendships"."sent_to_id" = $2 AND "friendships"."status" = $3 LIMIT $4[0m  [["sent_by_id", 1], ["sent_to_id", 2], ["status", false], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:15:in `friend_request_sent?'
+  Rendered users/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2022)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mNotification Load (60.7ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:12
+  Rendered shared/_notifications.html.erb (Duration: 96.6ms | Allocations: 2423)
+  Rendered layouts/_header.html.erb (Duration: 4452.9ms | Allocations: 6829)
+  Rendered layouts/_flash.html.erb (Duration: 1.6ms | Allocations: 173)
+  Rendered layout layouts/application.html.erb (Duration: 4508.4ms | Allocations: 15769)
+Completed 200 OK in 4523ms (Views: 4419.2ms | ActiveRecord: 95.6ms | Allocations: 18237)
+
+
+Started GET "/posts/new" for ::1 at 2021-10-20 19:26:31 +0300
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 49.9ms | Allocations: 418)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mNotification Load (1.8ms)[0m  [1m[34mSELECT "notifications".* FROM "notifications" WHERE "notifications"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/shared/_notifications.html.erb:12
+  Rendered shared/_notifications.html.erb (Duration: 4.0ms | Allocations: 855)
+  Rendered layouts/_header.html.erb (Duration: 5.5ms | Allocations: 1173)
+  Rendered layouts/_flash.html.erb (Duration: 1.4ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 70.4ms | Allocations: 7922)
+Completed 200 OK in 91ms (Views: 71.6ms | ActiveRecord: 3.4ms | Allocations: 12042)
+
+
+Started POST "/posts" for ::1 at 2021-10-20 19:26:53 +0300
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"content"=>"Added notifications"}, "commit"=>"New Post"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:33:in `create'
+  [1m[36mPost Create (327.7ms)[0m  [1m[32mINSERT INTO "posts" ("content", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["content", "Added notifications"], ["user_id", 1], ["created_at", "2021-10-20 16:26:53.443552"], ["updated_at", "2021-10-20 16:26:53.443552"]]
+  ↳ app/controllers/posts_controller.rb:33:in `create'
+  [1m[36mTRANSACTION (372.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:33:in `create'
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 725ms (ActiveRecord: 703.6ms | Allocations: 5070)
+
+
+Started GET "/posts/5" for ::1 at 2021-10-20 19:26:54 +0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPost Load (3.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/_post_layout.html.erb:1
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "likes" WHERE "likes"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/likes/_like_posts.html.erb:1
+  [1m[36mLike Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."user_id" = $1 AND "likes"."post_id" = $2 LIMIT $3[0m  [["user_id", 1], ["post_id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:6:in `liked?'
+  Rendered likes/_like_posts.html.erb (Duration: 99.9ms | Allocations: 6125)
+  Rendered comments/_form.html.erb (Duration: 19.4ms | Allocations: 4801)
+  Rendered posts/_post_layout.html.erb (Duration: 124.7ms | Allocations: 12634)
+  Rendered posts/show.html.erb within layouts/application (Duration: 186.1ms | Allocations: 13000)
+  Rendered layout layouts/application.html.erb (Duration: 186.4ms | Allocations: 13064)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 8.4ms | Allocations: 15495)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `comment' for #<ActionView::Base:0x0000000000f528>
+Did you mean?  comment_url):
+    1: <%= form_for comment.each do |f| %>
+    2:     <%= f.text_area :content, class: "form-control" %>
+    3:     <%= f.submit "Comment", class: "btn btn-success" %>
+    4:     <%= f.hidden_field :post_id, :value => object.id %>
+  
+app/views/comments/_form.html.erb:1
+app/views/posts/_post_layout.html.erb:7
+app/views/posts/show.html.erb:2
