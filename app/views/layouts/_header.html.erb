@@ -14,8 +14,11 @@
       <div id="navbarExample" class="navbar-menu">
         <div class="navbar-end">
            <div class="row mt-2">
+             <p class="nav-item">
+                <%= link_to "New Post", new_post_path, class: "mr-3" %>
+              </p>
               <p class="nav-item">
-                <%= link_to "My Profile", user_path(current_user), class: "mr-3" %>
+                <%= link_to "My Profile", user_path(current_user), class: "mx-3" %>
               </p>
               <p class="nav-item">
                 <%= link_to "Edit Profile", edit_user_registration_path, class: "mx-3" %>

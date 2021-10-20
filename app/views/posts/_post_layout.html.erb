@@ -1,4 +1,8 @@
+<%= object.user.fname %>
+<%= object.user.lname %>
+<br>
 <%= object.content %>
+<br>
 <%= render 'likes/like_posts', object: object%>
 <%= render 'comments/form', object: object %>
 <%object.comments.each do |c|%>
