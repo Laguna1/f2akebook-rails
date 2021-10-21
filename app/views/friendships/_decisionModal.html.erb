@@ -4,7 +4,7 @@
     <div class="modal-content">
       
       <div class="modal-body">
-        <h5 class="modal-title" id="decisionModalLabel">Friend Request from <%= "#{object.fname} #{object.lname}" %></h5>
+        <h5 class="modal-title" id="decisionModalLabel">Friend Request from <%= "#{object.full_name}" %></h5>
       </div>
       <div class="modal-footer">
         <%= link_to accept_friend_user_friendships_path(object) do %>
