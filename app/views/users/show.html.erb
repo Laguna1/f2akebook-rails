@@ -1,0 +1,11 @@
+<h3>Users#show</h3>
+<h1>
+
+  <%= @user.full_name %>
+
+</h1>
+
+<h4>My Posts</h4>
+<% @user.posts.each do |p| %>
+  <%= render 'posts/post_layout', object: p %>
+<% end %>
