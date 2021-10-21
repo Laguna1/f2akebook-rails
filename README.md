@@ -1,12 +1,20 @@
 # README
 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+This project is an analogue of a social network.
+The user can:
+- register,
+- log in to your account,
+- create a post,
+- see a list of other registered users,
+- send an invitation to friendship,
+- accept or reject the received invitation to friendship,
+- see in your timeline your posts and posts of friends,
+- comment on friends' posts,
+- Like posts or comments from friends
+- see notifications if you received a friend request, or someone commented on his post or liked his post / comment
 
 * Ruby version - `2.7.2p137`
+* Rails version - `6.1.4.1`
 
 * Getting Started
 - To get a local copy up and running follow these simple example steps.
