@@ -6,8 +6,12 @@ class User < ApplicationRecord
   has_many :friend_request, class_name: 'Friendship', foreign_key: 'sent_to_id', inverse_of: 'sent_to',
                             dependent: :destroy
   has_many :friends, -> { merge(Friendship.friends) }, through: :friend_sent, source: :sent_to
-  has_many :pending_requests, -> { merge(Friendship.not_friends) }, through: :friend_sent, source: :sent_to
-  has_many :received_requests, -> { merge(Friendship.not_friends) }, through: :friend_request, source: :sent_by
+  has_many :pending_requests, lambda {
+                                merge(Friendship.not_friends)
+                              }, through: :friend_sent, source: :sent_to
+  has_many :received_requests, lambda {
+                                 merge(Friendship.not_friends)
+                               }, through: :friend_request, source: :sent_by
   has_many :notifications, dependent: :destroy
 
   # Include default devise modules. Others available are:
@@ -24,7 +28,7 @@ class User < ApplicationRecord
 
   # Returns all posts from this user's friends and self
   def friends_and_own_posts
-    myfriends = friends()
+    myfriends = friends
     our_posts = []
     myfriends.each do |f|
       f.posts.each do |p|

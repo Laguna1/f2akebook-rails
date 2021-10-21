@@ -1,4 +1,6 @@
 module ApplicationHelper
+  # Checks whether or not a post or comment has already been liked by the current user
+  # returning either true or false
   def liked?(subject, type)
     result = false
     result = Like.where(user_id: current_user.id, post_id: subject.id).exists? if type == 'post'
@@ -15,7 +17,7 @@ module ApplicationHelper
 
   # Checks whether or not a user has sent a friend request to the current user
   # returning either true or false
-  def friend_request_recieved?(user)
+  def friend_request_received?(user)
     current_user.friend_request.exists?(sent_by_id: user.id, status: false)
   end
 
@@ -41,7 +43,7 @@ module ApplicationHelper
   end
 
   # Returns either true or false depending on the current user's notice_seen column
-  def notification_seen()
+  def notification_seen
     current_user.notice_seen
   end
 
