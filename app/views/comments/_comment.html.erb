@@ -1,14 +1,16 @@
 <% object.comments.each do |c| %>
-    <h5> <%= c.user.full_name %>  </h5>
-           >Posted <%= distance_of_time_in_words(c.created_at, Time.now) %> ago
+    <small> <%= c.user.full_name %><br>
+           Posted <%= distance_of_time_in_words(c.created_at, Time.now) %> ago  </small>
     <br>
+    <%= render 'likes/like_comments', object: c %>
+    <p class="font-italic">
     <%= c.content %> 
-    
+   <br>
     <% if current_user.id == c.user_id %>
           <%= link_to comment_path(c), method: :delete, data: { confirm: "You sure?" } do %>
-            <i class="fas fa-trash"></i>
+            <i class="fas fa-trash fa-2x"></i>
           <% end %>
         <% end %>
-    <br><br><%= render 'likes/like_comments', object: c %>
+    <br><br>
 
 <%end%>

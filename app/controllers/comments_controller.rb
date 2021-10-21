@@ -5,12 +5,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def show
-    @comment = Comment.find(params[:id])
-  end
-
   def create
-    @comment = current_user.comment.build(comment_params)
+    @comment = current_user.comments.build(comment_params)
     @post = Post.find(params[:comment][:post_id])
     if @comment.save
       @notification = new_notification(@post.user, @post.id, 'comment')

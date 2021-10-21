@@ -5,11 +5,6 @@
           <h1 class="title is-5">F@AKEBOOK</h1>
          <% end %>
     </div> 
-    <div> 
-         <%= link_to posts_path, class: "navbar-item" do %>
-          <h3 class="title is-5">Posts</h3>
-         <% end %>
-      </div> 
     <% if user_signed_in? %>
       <div id="navbarExample" class="navbar-menu">
         <div class="navbar-end">
@@ -19,11 +14,11 @@
               </p>
               
              <p class="nav-item mt-2">
-                <%= link_to "New Post", new_post_path, class: "mr-3" %>
+                <%= link_to "New Post", new_post_path, class: "mx-3" %>
               </p>
               
-              <p class="nav-item mt-2">
-                <%= link_to "My Profile", user_path(current_user), class: "mx-3" %>
+              <p class="nav-item mt-2 font-weight-bold">
+                <%= link_to current_user.full_name, user_path(current_user), class: "mx-3" %>
               </p>
               <p class="nav-item mt-2">
                 <%= link_to "Edit Profile", edit_user_registration_path, class: "mx-3" %>
@@ -31,7 +26,7 @@
                <p class="nav-item mt-2">
                  <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "mx-3"  %>
               </p>
-              <p class="nav-item">
+              <p class="nav-item mr-5">
                 <%= button_to saw_notice_path, :class => "text-white btn notice-btn-#{notification_seen}",
              data: {toggle: 'modal', target: '#noticeModal'}, method: :get, remote: true do %>
                 <% if notification_seen %>
