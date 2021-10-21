@@ -12416,3 +12416,10 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 255ms (Views: 156.5ms | ActiveRecord: 74.3ms | Allocations: 40456)
 
 
+Started GET "/saw_notification" for ::1 at 2021-10-21 21:12:53 +0300
+Processing by UsersController#saw_notification as JS
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+No template found for UsersController#saw_notification, rendering head :no_content
+Completed 204 No Content in 718ms (ActiveRecord: 285.2ms | Allocations: 5327)
+
+
