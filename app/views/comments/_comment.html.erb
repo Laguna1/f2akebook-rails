@@ -1,7 +1,6 @@
 <% object.comments.each do |c| %>
-    <h5> <%= c.user.fname %>
-          <%= c.user.lname %>  </h5>
-           >Posted <%= distance_of_time_in_words(object.created_at, c.created_at) %> ago
+    <h5> <%= c.user.full_name %>  </h5>
+           >Posted <%= distance_of_time_in_words(c.created_at, Time.now) %> ago
     <br>
     <%= c.content %> 
     

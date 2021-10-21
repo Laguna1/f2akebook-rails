@@ -5721,3 +5721,43 @@ HINT:  No operator matches the given name and argument type. You might need to a
   
 app/models/user.rb:30:in `friends'
 app/controllers/users_controller.rb:4:in `index'
+Started GET "/" for ::1 at 2021-10-21 19:27:31 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 1204ms (ActiveRecord: 24.7ms | Allocations: 359689)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) :sent_to in model Friendship. Try 'has_many :friends, :through => :friend_sent, :source => <name>'. Is it one of ent_to or sent_by?):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/" for ::1 at 2021-10-21 19:28:31 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.4ms | Allocations: 1949)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) :sent_to in model Friendship. Try 'has_many :friends, :through => :friend_sent, :source => <name>'. Is it one of ent_to or sent_by?):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/" for ::1 at 2021-10-21 19:32:38 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.9ms | Allocations: 1948)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) :sent_to in model Friendship. Try 'has_many :friends, :through => :friend_sent, :source => <name>'. Is it one of ent_to or sent_by?):
+  
+app/controllers/users_controller.rb:4:in `index'
+Started GET "/" for ::1 at 2021-10-21 19:33:25 +0300
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.5ms | Allocations: 1927)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) :sent_to in model Friendship. Try 'has_many :friends, :through => :friend_sent, :source => <name>'. Is it one of ent_to or sent_by?):
+  
+app/controllers/users_controller.rb:4:in `index'

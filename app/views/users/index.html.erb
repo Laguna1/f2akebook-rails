@@ -9,7 +9,7 @@
       <div class="row mb-4">  
         <div class="col-auto">
           <%= link_to user_path(f) do %>
-            <%= f.fname %> <%= f.lname %>
+            <%= f.full_name %>
           <% end %>
         </div>
         <div class="col-auto">    
@@ -35,7 +35,7 @@
   <h2>Pending Friend Requests</h2>
   <% @friend_requests.each do |user| %> <!-- Shows all users friend requests has been sent to -->
     <%= link_to user_path(user) do %>
-      <%= user.fname %> <%= user.lname %>
+      <%= user.full_name %>
     <% end %>
     | <button class= "btn btn-info" data-toggle="modal" data-target="#decisionModal">
         <i class="fas fa-envelope"></i> Pending Friend Request... 
@@ -50,7 +50,7 @@
   <% if current_user.id != user.id %><!-- Doesn't show current user on list -->
     <% unless possible_friend?(user) %> <!-- If user is not a friend and no request has been sent to or recieved from this user -->
       <%= link_to user_path(user) do %>
-        <%= user.fname %> <%= user.lname %>
+        <%= user.full_name %>
       <% end %>
       | 
       <%= link_to user_friendships_path(user), method: :post do %>
