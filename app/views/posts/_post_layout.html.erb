@@ -2,14 +2,22 @@
 
   <div class=" ">
     <div class="">
-      <%= object.user.full_name %>
+      <%= link_to user_path(object.user) do%>
+            <%= object.user.full_name %>
+          <%end%>
     </div> <br>
 
     <div class="">
       <%= object.content %>
+      <p>Posted <%= distance_of_time_in_words(object.created_at, Time.now) %> ago<</p>
     </div>
   </div> 
-
+  <div><% if current_user.id == object.user_id%>
+      <%= link_to post_path(object), method: :delete, data: { confirm: "You sure?" } do %>
+        <i class="fas fa-trash hover-red"></i>
+      <% end %>
+    <% end %>
+    </div>
   <div class=""><%= render 'likes/like_posts', object: object %></div>
   <div class="">
      <%= render 'comments/comment', object: object %>
